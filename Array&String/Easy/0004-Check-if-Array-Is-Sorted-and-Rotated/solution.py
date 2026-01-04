@@ -1,0 +1,46 @@
+'''Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false.
+
+There may be duplicates in the original array.
+
+Note: An array A rotated by x positions results in an array B of the same length such that B[i] == A[(i+x) % A.length] for every valid index i.'''
+
+from typing import List
+
+class solution:
+    def check(self, nums: List[int]) -> bool:
+        N = len(nums)
+        count = 1
+
+        for i in range(1, 2 * N):
+            if nums[(i-1) % N] <= nums[i % N]:
+                count += 1
+            else:
+                count = 1
+            
+            if count == N:
+                return True
+            
+        # single element is also accepted     
+        return N == 1
+    
+if __name__ == '__main__':
+    sol = solution()
+
+    test_cases = [
+        [3, 4, 5, 1, 2],
+        [1, 2, 3, 4, 5],
+        [2, 1, 3, 4],
+        [1],
+        [2, 2, 2, 3, 1, 2],
+        [2,1],
+[2,4,1,3],
+[2,1,2,2,2],
+[6,7,2,7,5],
+[7,9,1,1,1,3],
+[10,10,1,4,5,10],
+[4,6,9,9,10,13,13,14,14,14,15,15,15,15,16,16,18,18,19,20,20,22,22,22,24,25,25,27,27,28,28,31,31,33,34,36,36,36,39,40,41,41,42,42,44,47,50,52,53,53,55,55,56,63,63,70,71,72,72,74,76,76,77,79,80,80,80,81,84,84,85,85,88,88,89,89,89,90,91,92,93,93,94,94,94,96,97,97,97,97,98,99,99,100,1,1,1,2,2,4],
+[38,8,53,18,57,44,56,58,57,93,56,12,89,75,37,45,57,40,67,100,6,92,100,87,47,67,47,38,16,21,48,29,21,61,29,84,9,23,43,22,84,50,7,21,70,31,30,22,2,76,33,25,11,51,74,95,94,2,50,49,55,43,93,60,44,97,52,1,63,97,66,20,84,4,85,14,85,18,15,26,51,70,52,8,95,84,37,4,41,97,96,17,20,98,34,70,93,83,81,62]
+    ]
+        
+    for nums in test_cases:
+        print(f"{nums} -> {sol.check(nums)}")
