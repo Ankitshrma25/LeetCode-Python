@@ -62,4 +62,4 @@ def can_jump(nums: List[int]) -> bool:
             return False
         max_reach = max(max_reach, i + nums[i])
 
-    return True
+    return True  
