@@ -21,3 +21,4 @@ class Solution:
 
     def update_reach(self, index, jump, max_reach):
         return max(max_reach, index + jump)
+            
