@@ -1,18 +1,14 @@
-def rotatString(s, goal):
-    k = 1
-    n = 0
-    while (n > len(s)):
-        
-        s = s[k:] + s[:k]
-        n += 1
-
-        if s != goal:
-            rotatString(s, goal)
-            return True
-    return True
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        if len(s) != len(goal):
+            return False
+        return goal in (s+s)
     
 s = "abcde"
 goal = "cdaeb"
+RotateStringSolv = Solution()
 
-result = rotatString(s, goal)
+result = RotateStringSolv.rotateString(s=s, goal=goal)
+
+
 print(result)
