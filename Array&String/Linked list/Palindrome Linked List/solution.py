@@ -33,8 +33,10 @@ class solution:
         first = head
 
         # compair both the part of the linkedlist
-        while first != slow.next and second_head:
-            if first.val != second_head.val: return False
+        while second_head:
+            if first.val != second_head.val:
+                reverse_LL(second)
+                return False
             first = first.next
             second_head = second_head.next
 
@@ -45,7 +47,7 @@ class solution:
 
 if __name__ == "__main__":
 
-    Node_list = [1,2,3,2,1]
+    Node_list = [1,2,3,2,1,3]
 
     head = ListNode(Node_list[0])
     current = head
