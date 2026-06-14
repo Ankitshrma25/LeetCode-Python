@@ -19,9 +19,15 @@ class LinkedList:
             mover = temp
         return head
     
+if __name__ == '__main__':
 
-array = [1,12,3,2,4,7]
+    array = [1,12,3,2,4,7]
 
-head = LinkedList.array_to_linkedlist(arr=array)
+    head = LinkedList.array_to_linkedlist(arr=array)
+    
+    temp = head
+    while temp:
+        print(temp.data)
+        temp = temp.next
 
-print(head.data)
+    # print(head.data)
